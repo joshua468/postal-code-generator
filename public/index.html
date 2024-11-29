@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postal Code Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Find Nigerian Postal Code</h1>
+        <input type="text" id="stateInput" placeholder="Enter state name"/>
+        <button onclick="getPostalCode()">Get Postal Code</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function getPostalCode() {
+            const state = document.getElementById('stateInput').value.trim();
+            const response = await fetch(`/api/postal-code/${state}`);
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('result').innerHTML = `<p><strong>${data.state}</strong>: ${data.postal_code}</p>`;
+            } else {
+                document.getElementById('result').innerHTML = `<p>State not found!</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
