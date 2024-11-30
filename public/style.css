@@ -1,9 +1,11 @@
+/* Resetting margin, padding, and box sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -11,44 +13,85 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(to bottom right, #008751, #ffffff);
 }
 
-/* Container Style */
+/* Container Styling */
 .container {
     text-align: center;
     background-color: white;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 500px;
+    border-radius: 10px;
+    border: 2px solid #008751;
 }
 
-/* Input Field Style */
+/* Heading Styling */
+h1 {
+    color: #008751;
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Input Field Styling */
 input[type="text"] {
-    padding: 10px;
+    padding: 12px;
     width: 80%;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
-/* Button Style */
+input[type="text"]:focus {
+    outline: none;
+    border-color: #008751;
+}
+
+/* Button Styling */
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    padding: 12px 24px;
+    background-color: #008751;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #006b3e;
+    transform: scale(1.05);
 }
 
-/* Result Display Style */
+/* Result Styling */
 #result {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
+    color: #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    button {
+        width: 100%;
+    }
 }
