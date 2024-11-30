@@ -3,11 +3,11 @@ package main
 import (
 	"encoding/csv"
 	"encoding/json"
-	"net/http"
 	"fmt"
 	"log"
-	"strings"
+	"net/http"
 	"os"
+	"strings"
 )
 
 // Define a struct to hold the postal code data
@@ -42,10 +42,12 @@ func loadPostalCodes() (PostalCodes, error) {
 	return postalCodes, nil
 }
 
-
+// Serve the homepage (index.html)
 func serveHomePage(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "./public/index.html")
 }
+
+// Handle the postal code request
 func getPostalCode(w http.ResponseWriter, r *http.Request) {
 	// Get the state name from the URL
 	state := strings.TrimPrefix(r.URL.Path, "/api/postal-code/")
